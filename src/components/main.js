@@ -51,6 +51,7 @@ const Main = () =>{
         setShowEditModal(true);
         setEdit(item);
         setIt(index);
+        // return false;
 
     }
 
@@ -89,21 +90,18 @@ const Main = () =>{
 
     }
 
-    // const lineThrough = (e) =>{
-    //     return e.target.style.textDecoration="line-through";
-    // }
+    // const [showlineEdit , setShowLineEdit] = useState(true);
+  
+    const setLineThrough=(event)=>{
+          event.target.classList.toggle("crossed-line");  
+    }
+
+    // setShowLineEdit=(e)=>{
+    //     e.target.classList.toggle("show-pen");
+    // }    
     
-    // const [clicked,setIsclicked] = useState(false);
-    // function  handleClick(id) {
-    //     setIsclicked((id)=>{
-    //         return (!id)
-            // style = {{textDecoration:clicked? "line-through":"none"}} onClick={handleClick(item)}
-    //     })
-    // }
-
-
     useEffect(()=>{
-        localStorage.setItem('lists',JSON.stringify(list))
+        localStorage.setItem('lists',JSON.stringify(list));
     },[list])
 
 
@@ -122,7 +120,8 @@ const Main = () =>{
                 list.map((item , index) =>{
                     return(
                         <div key={index} id={index} className="items">
-                            <div  className="text">{item}</div>
+            
+                            <div  onClick={setLineThrough} className="text">{item}</div>
                             <div className="editDelete">
                                 <div onClick={()=> editOnOp(item,index) }>
                                     <i className="fas fa-pen"></i>

@@ -100,6 +100,14 @@
 
 }
 
+.crossed-line{
+    text-decoration:line-through;
+}
+
+.show-pen{
+    display:none;
+}
+
 h1{
     margin:4rem 0 0.5rem 0;
     font-family: 'Do Hyeon', sans-serif;
